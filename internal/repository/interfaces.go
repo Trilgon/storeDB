@@ -28,9 +28,9 @@ type StoreRepository interface {
 	// CartDelete - удаление корзины
 	CartDelete(cartId int64) error
 	// OrderCreate - оформление заказа на основе корзины
-	OrderCreate(cartId int64) (models.Order, error)
+	OrderCreate(cartId int64) (*models.Order, error)
 	// OrderGet - получение информации о заказе
-	OrderGet(orderId int64) (models.Order, error)
+	OrderGet(orderId int64) (*models.Order, error)
 	// OrderUpdate - обновление информации о заказе
 	OrderUpdate(orderId int64, order *dto.OrderUpdate) error
 	// OrderDelete - Получение списка товаров в корзине

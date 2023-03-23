@@ -31,9 +31,9 @@ type StoreService interface {
 	// CartDelete - удаление корзины
 	CartDelete(cartId int64) error
 	// OrderCreate - оформление заказа на основе корзины
-	OrderCreate(cartId int64) (models.Order, error)
+	OrderCreate(cartId int64) (*models.Order, error)
 	// OrderGet - получение информации о заказе
-	OrderGet(orderId int64) (models.Order, error)
+	OrderGet(orderId int64) (*models.Order, error)
 	// OrderUpdate - обновление информации о заказе
 	OrderUpdate(orderId int64, order *dto.OrderUpdate) error
 	// OrderDelete - Получение списка товаров в корзине
@@ -53,71 +53,113 @@ func NewStore() (*Store, error) {
 }
 
 func (s *Store) GoodsAdd(goods *models.Goods) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.GoodsAdd(goods)
+	if err != nil {
+		return fmt.Errorf("[GoodsAdd]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) GoodsGet(goodsId int64) (*models.Goods, error) {
-	//TODO implement me
-	panic("implement me")
+	goods, err := s.rep.GoodsGet(goodsId)
+	if err != nil {
+		return nil, fmt.Errorf("[GoodsGet]: %s", err)
+	}
+	return goods, nil
 }
 
 func (s *Store) GoodsUpdate(goodsId int64, goods *dto.GoodsUpdate) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.GoodsUpdate(goodsId, goods)
+	if err != nil {
+		return fmt.Errorf("[GoodsUpdate]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) GoodsDelete(goodsId int64) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.GoodsDelete(goodsId)
+	if err != nil {
+		return fmt.Errorf("[GoodsDelete]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) CartCreate(cart *models.Cart) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.CartCreate(cart)
+	if err != nil {
+		return fmt.Errorf("[CartCreate]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) CartAddGoods(goods *dto.GoodsAdd) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.CartAddGoods(goods)
+	if err != nil {
+		return fmt.Errorf("[CartAddGoods]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) CartGetGoods() ([]models.Goods, error) {
-	//TODO implement me
-	panic("implement me")
+	goods, err := s.rep.CartGetGoods()
+	if err != nil {
+		return nil, fmt.Errorf("[CartGetGoods]: %s", err)
+	}
+	return goods, nil
 }
 
 func (s *Store) CartGoodsUpdate(cartId, goodsId, quantity int64) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.CartGoodsUpdate(cartId, goodsId, quantity)
+	if err != nil {
+		return fmt.Errorf("[CartGoodsUpdate]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) CartDeleteGoods(cartId, goodsId int64) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.CartDeleteGoods(cartId, goodsId)
+	if err != nil {
+		return fmt.Errorf("[CartDeleteGoods]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) CartDelete(cartId int64) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.CartDelete(cartId)
+	if err != nil {
+		return fmt.Errorf("[CartDelete]: %s", err)
+	}
+	return nil
 }
 
-func (s *Store) OrderCreate(cartId int64) (models.Order, error) {
-	//TODO implement me
-	panic("implement me")
+func (s *Store) OrderCreate(cartId int64) (*models.Order, error) {
+	order, err := s.rep.OrderCreate(cartId)
+	if err != nil {
+		return nil, fmt.Errorf("[OrderCreate]: %s", err)
+	}
+	return order, nil
 }
 
-func (s *Store) OrderGet(orderId int64) (models.Order, error) {
-	//TODO implement me
-	panic("implement me")
+func (s *Store) OrderGet(orderId int64) (*models.Order, error) {
+	order, err := s.rep.OrderGet(orderId)
+	if err != nil {
+		return nil, fmt.Errorf("[OrderGet]: %s", err)
+	}
+	return order, nil
 }
 
 func (s *Store) OrderUpdate(orderId int64, order *dto.OrderUpdate) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.OrderUpdate(orderId, order)
+	if err != nil {
+		return fmt.Errorf("[OrderUpdate]: %s", err)
+	}
+	return nil
 }
 
 func (s *Store) OrderDelete(orderId int64) error {
-	//TODO implement me
-	panic("implement me")
+	err := s.rep.OrderDelete(orderId)
+	if err != nil {
+		return fmt.Errorf("[OrderDelete]: %s", err)
+	}
+	return nil
 }

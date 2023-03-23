@@ -116,12 +116,12 @@ func (r *StoreRepository) CartDelete(cartId int64) error {
 	return nil
 }
 
-func (r *StoreRepository) OrderCreate(cartId int64) (models.Order, error) {
+func (r *StoreRepository) OrderCreate(cartId int64) (*models.Order, error) {
 	//TODO implement me
 	panic("implement me")
 }
 
-func (r *StoreRepository) OrderGet(orderId int64) (models.Order, error) {
+func (r *StoreRepository) OrderGet(orderId int64) (*models.Order, error) {
 	order := models.Order{}
 	err := r.db.Get(&order, `
 		SELECT order_id, goods_id, quantity, total, order_time, finish_time
@@ -129,12 +129,12 @@ func (r *StoreRepository) OrderGet(orderId int64) (models.Order, error) {
 	`, orderId)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
-			return models.Order{}, fmt.Errorf("order with ID %d not found in DB", orderId)
+			return &models.Order{}, fmt.Errorf("order with ID %d not found in DB", orderId)
 		}
-		return models.Order{}, fmt.Errorf("failed to get order: %w", err)
+		return &models.Order{}, fmt.Errorf("failed to get order: %w", err)
 	}
 
-	return order, nil
+	return &order, nil
 }
 
 func (r *StoreRepository) OrderUpdate(orderId int64, order *dto.OrderUpdate) error {

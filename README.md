@@ -156,7 +156,23 @@
 Ответ:
 ```json
 {
-  "order_id": 3
+  "goods": [
+    {
+      "goods_id": 123,
+      "name": "Ноутбук",
+      "price": 50000,
+      "quantity": 1
+    },
+    {
+      "goods_id": 32,
+      "name": "Планшет",
+      "price": 8000,
+      "quantity": 2
+    }
+  ],
+  "total": 66000,
+  "order_time": "2023-03-20T12:00:00Z",
+  "finish_time": null
 }
 ```
 
