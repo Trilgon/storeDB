@@ -1,0 +1,8 @@
+{
+  "db": {
+    "connection" : "user=lebedev password=mirea host=localhost dbname=store_db sslmode=disable"
+  },
+  "server": {
+    "host": "localhost:8080"
+  }
+}
