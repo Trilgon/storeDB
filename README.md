@@ -1,3 +1,7 @@
+## Структура БД
+
+![db_structure.png](db_structure.png)
+
 ## Спецификация API
 
 ### Создание товара
@@ -21,7 +25,8 @@
 - Метод: `GET`
 - URL: `/api/goods/get?goods_id`
 
-Ответ: 
+Ответ:
+
 ```json
 {
   "goods_id": 123,
@@ -62,7 +67,8 @@
 
 Тело запроса (JSON): `нет`
 
-Ответ: 
+Ответ:
+
 ```json
 {
   "cart_id": 4
@@ -91,6 +97,7 @@
 - URL: `/api/carts/goods/get`
 
 Ответ:
+
 ```json
 {
   "goods": [
@@ -154,6 +161,7 @@
 ```
 
 Ответ:
+
 ```json
 {
   "goods": [
@@ -182,6 +190,7 @@
 - URL: `/api/orders/get?order_id`
 
 Ответ:
+
 ```json
 {
   "goods": [
